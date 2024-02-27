@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+            <h1>BMI Calculator</h1>
+            <div class="first">
+                <div class="box">
+                    <label>Weight:</label>
+                    <input type="text" id="a"  placeholder="Enter Weight(KG)" ><br>
+                </div>
+                <div class="box">
+                    <label>Height:</label>
+                    <input type="text" id="b"  placeholder="Enter Height(CM)"><br>
+                </div>
+            </div>
+            <button type="" onclick="task()">Calculate</button>
+            <p id="r"></p>
+    </div>
+    <script>
+        function task()
+        {
+            let aa=parseInt(document.getElementById("a").value);
+            let bb=parseInt(document.getElementById("b").value);
+            var result = document.getElementById("r");
+            let bmi = (aa / ((bb * bb)/ 10000)).toFixed(2);
+            let vc="Invalid Data";
+            if(bmi<18.6)
+            {
+                vc="Under Weight";
+                result.style.color="blue";
+            }
+            else if(bmi>=18.6 && bmi<24.9)
+            {
+                vc="Normal";
+                result.style.color="green";
+            }
+            else if(bmi>=24.9){
+                vc="Over Weight";
+                result.style.color="red";
+            }
+            result.textContent=vc;
+        }
+    </script>
+</body>
+</html>
